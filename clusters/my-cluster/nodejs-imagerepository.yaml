@@ -2,7 +2,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: nodejs-express-mysql
-  namespace: default
+  namespace: flux-system
 spec:
   image: fatmanurdocker/nodejs-express-mysql  # Correct DockerHub repository
   interval: 1m

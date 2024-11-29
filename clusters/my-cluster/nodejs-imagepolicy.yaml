@@ -5,9 +5,9 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: nodejs-express-app
+    name: nodejs-express-mysql
     namespace: flux-system
   policy:
-    semver:
-      range: '>=0.1.0'
+    numerical:
+      order: asc
 

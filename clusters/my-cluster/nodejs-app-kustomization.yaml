@@ -10,9 +10,10 @@ spec:
   sourceRef:
     kind: GitRepository
     name: nodejs-app
+    namespace: flux-system
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
-      name: nodejs-express-mysql
-      namespace: default
+      name: nodejs-app-nodejs-express-mysql
+      namespace: flux-system
   timeout: 5m  # Optional: Increase timeout for reconciliation
