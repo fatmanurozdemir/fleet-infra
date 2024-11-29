@@ -1,0 +1,26 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: nodejs-express-app-update
+  namespace: flux-system
+spec:
+  interval: 1m  # How often Flux checks for image updates
+  update:
+    path: ./helmchart/nodejs-express-mysql/templates/deployment.yaml  # Path to the deployment manifest
+    strategy: Setters  # Update the image tag in the deployment.yaml
+  sourceRef:
+    kind: GitRepository
+    name: nodejs-app  # Reference to the GitRepository resource created earlier
+    namespace: flux-system
+  git:
+    checkout:
+      ref:
+        branch: master  # Branch to push updates to
+    commit:
+      author:
+        email: "ozdemir.fatmanur18@gmail.com"
+        name: "fatmanurozdemir"
+      messageTemplate: "Update image tags to latest versions"
+    push:
+      branch: master
+
