@@ -7,18 +7,18 @@ spec:
   interval: 30m
   sourceRef:
     kind: GitRepository
-    name: nodejs-app
+    name: flux-system
   git:
     checkout:
       ref:
-        branch: master
+        branch: main
     commit:
       author:
         email: ozdemir.fatmanur18@gmail.com
         name: fatmanurozdemir
       messageTemplate: '{{range .Changed.Changes}}{{print .OldValue}} -> {{println .NewValue}}{{end}}'
     push:
-      branch: master
+      branch: main
   update:
     path: ./clusters/my-cluster
     strategy: Setters
