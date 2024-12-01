@@ -1,7 +1,8 @@
-apiVersion: image.toolkit.fluxcd.io/v1alpha2
+apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: nodejs-app
   namespace: flux-system
 spec:
   image: fatmanurdocker/nodejs-express-mysql
+  interval: 1m
